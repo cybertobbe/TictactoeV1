@@ -48,7 +48,7 @@ public class GameModel {
         //if button is taken, try again
         //if all buttons are taken, game over
         for(int i = 0; i < buttons.size(); i++){
-            if(buttons.get(i).getText().equals("")){
+            if(buttons.get(i).getText().isEmpty()){
                 buttons.get(i).setText("O");
                 buttons.get(i).setDisable(true);
                 break;
