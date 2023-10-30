@@ -44,18 +44,14 @@ public class GameModel {
     public void computerPlay(List<Button> buttons){
         int randomButton = random.nextInt(1,9);
 
-        //if button is not taken, take it
-        //if button is taken, try again
-        //if all buttons are taken, game over
+        //Doesnt work yes. Redo this.
         for(int i = 0; i < buttons.size(); i++){
-            if(buttons.get(i).getText().isEmpty()){
-                buttons.get(i).setText("O");
-                buttons.get(i).setDisable(true);
+            if(buttons.get(randomButton).isDisabled()){
+                buttons.get(randomButton).setText("O");
+                buttons.get(randomButton).setDisable(true);
                 break;
             }
-            else if(i == buttons.size()-1){
-                gameOver = true;
-            }
+
         }
 
 
