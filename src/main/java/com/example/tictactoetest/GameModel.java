@@ -1,7 +1,11 @@
 package com.example.tictactoetest;
 
 
+import javafx.scene.control.Button;
+
+import java.util.List;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 import static jdk.internal.org.jline.utils.InfoCmp.Capability.buttons;
 
@@ -31,19 +35,28 @@ public class GameModel {
 
         //This method is called from GameController when a button is clicked
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-        if(getTotalMoveCounter()%2 != 0){
-            computerPlay();
 
-        }
 
 
     }
 
     //is this called every second time?
-    public void computerPlay(){
+    public void computerPlay(List<Button> buttons){
         int randomButton = random.nextInt(1,9);
 
-
+        //if button is not taken, take it
+        //if button is taken, try again
+        //if all buttons are taken, game over
+        for(int i = 0; i < buttons.size(); i++){
+            if(buttons.get(i).getText().equals("")){
+                buttons.get(i).setText("O");
+                buttons.get(i).setDisable(true);
+                break;
+            }
+            else if(i == buttons.size()-1){
+                gameOver = true;
+            }
+        }
 
 
     }

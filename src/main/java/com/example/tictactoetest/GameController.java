@@ -114,6 +114,10 @@ public class GameController {
             gameModel.playerClick(buttonClicked);
         }
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
+
+        if(getGameModel().getTotalMoveCounter()%2 != 0){
+            getGameModel().computerPlay(buttons);
+        }
     }
 
 
