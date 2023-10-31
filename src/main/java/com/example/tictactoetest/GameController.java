@@ -115,14 +115,15 @@ public class GameController {
         }
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
-        if(getGameModel().getTotalMoveCounter()%2 != 0){
-            getGameModel().computerPlay(buttons);
-        }
+        gameModel.checkWin(buttons);
+
+        getGameModel().computerPlay(buttons);
+        gameModel.checkWin(buttons);
     }
 
 
 
-    // all variables resets to default?
+    // all variables resets to default
 
     public void resetGameOnClick(MouseEvent mouseEvent) throws IOException {
         //Game plan sets back to defaults
@@ -135,12 +136,6 @@ public class GameController {
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         computerPoints.setText("Computer points " + gameModel.getTotalMoveCounter());
 
-
     }
-
-
-
-
-
 
 }
