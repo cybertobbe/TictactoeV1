@@ -52,78 +52,69 @@ public class GameController {
 
 
     //FXML methods
-
     public void clicked(MouseEvent mouseEvent) {
         int buttonClicked = 0;
 
+                if (mouseEvent.getSource() == one) {
+                    one.setText("X");
+                    one.setDisable(true);
+                    buttonClicked = 1;
+                    gameModel.playerClick(buttonClicked);
+                } else if (mouseEvent.getSource() == two) {
+                    two.setText("X");
+                    two.setDisable(true);
+                    buttonClicked = 2;
+                    gameModel.playerClick(buttonClicked);
+                } else if (mouseEvent.getSource() == three) {
+                    three.setText("X");
+                    three.setDisable(true);
+                    buttonClicked = 3;
+                    gameModel.playerClick(buttonClicked);
+                } else if (mouseEvent.getSource() == four) {
+                    four.setText("X");
+                    four.setDisable(true);
+                    buttonClicked = 4;
+                    gameModel.playerClick(buttonClicked);
+                } else if (mouseEvent.getSource() == five) {
+                    five.setText("X");
+                    five.setDisable(true);
+                    buttonClicked = 5;
+                    gameModel.playerClick(buttonClicked);
+                } else if (mouseEvent.getSource() == six) {
+                    six.setText("X");
+                    six.setDisable(true);
+                    buttonClicked = 6;
+                    gameModel.playerClick(buttonClicked);
+                } else if (mouseEvent.getSource() == seven) {
+                    seven.setText("X");
+                    seven.setDisable(true);
+                    buttonClicked = 7;
+                    gameModel.playerClick(buttonClicked);
+                } else if (mouseEvent.getSource() == eight) {
+                    eight.setText("X");
+                    eight.setDisable(true);
+                    buttonClicked = 8;
+                    gameModel.playerClick(buttonClicked);
 
-        //Switch case preferred
-        if(mouseEvent.getSource() == one){
-            one.setText("X");
-            one.setDisable(true);
-            buttonClicked = 1;
-            gameModel.playerClick(buttonClicked);
-        }
-        else if(mouseEvent.getSource() == two){
-            two.setText("X");
-            two.setDisable(true);
-            buttonClicked = 2;
-            gameModel.playerClick(buttonClicked);
-        }
-        else if(mouseEvent.getSource() == three){
-            three.setText("X");
-            three.setDisable(true);
-            buttonClicked = 3;
-            gameModel.playerClick(buttonClicked);
-        }
-        else if(mouseEvent.getSource() == four){
-            four.setText("X");
-            four.setDisable(true);
-            buttonClicked = 4;
-            gameModel.playerClick(buttonClicked);
-        }
-        else if(mouseEvent.getSource() == five){
-            five.setText("X");
-            five.setDisable(true);
-            buttonClicked = 5;
-            gameModel.playerClick(buttonClicked);
-        }
-        else if(mouseEvent.getSource() == six){
-            six.setText("X");
-            six.setDisable(true);
-            buttonClicked = 6;
-            gameModel.playerClick(buttonClicked);
-        }
-        else if(mouseEvent.getSource() == seven){
-            seven.setText("X");
-            seven.setDisable(true);
-            buttonClicked = 7;
-            gameModel.playerClick(buttonClicked);
-        }
-        else if(mouseEvent.getSource() == eight){
-            eight.setText("X");
-            eight.setDisable(true);
-            buttonClicked = 8;
-            gameModel.playerClick(buttonClicked);
+                } else if (mouseEvent.getSource() == nine) {
+                    nine.setText("X");
+                    nine.setDisable(true);
+                    buttonClicked = 9;
+                    gameModel.playerClick(buttonClicked);
+                }
+                moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
-        }
-        else if(mouseEvent.getSource() == nine){
-            nine.setText("X");
-            nine.setDisable(true);
-            buttonClicked = 9;
-            gameModel.playerClick(buttonClicked);
-        }
-        moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
+                gameModel.computerPlay(buttons);
 
-        gameModel.checkWin(buttons);
+                moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
-        getGameModel().computerPlay(buttons);
-        gameModel.checkWin(buttons);
     }
 
 
 
-    // all variables resets to default
+
+
+
 
     public void resetGameOnClick(MouseEvent mouseEvent) throws IOException {
         //Game plan sets back to defaults
@@ -135,6 +126,9 @@ public class GameController {
         playerPoints.setText("Player points " + gameModel.getTotalMoveCounter());
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         computerPoints.setText("Computer points " + gameModel.getTotalMoveCounter());
+
+
+
 
     }
 

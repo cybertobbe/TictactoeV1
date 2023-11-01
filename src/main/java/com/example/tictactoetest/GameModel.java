@@ -1,11 +1,12 @@
 package com.example.tictactoetest;
 
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -18,10 +19,16 @@ public class GameModel {
 
     Random random = new Random();
 
-    private final String player1 = "Tobias";
     private boolean gameOver;
     private int totalMoveCounter;
+    public String player;
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
 
+    public boolean isGameOver() {
+        return gameOver;
+    }
 
     public GameModel() {
         gameOver = false;
@@ -31,6 +38,7 @@ public class GameModel {
 
     public void playerClick(int buttonClicked) {
         //This method is called from GameController when a button is clicked
+
         setTotalMoveCounter(getTotalMoveCounter() + 1);
 
 
@@ -38,7 +46,6 @@ public class GameModel {
 
     //is this called every second time?
     public void computerPlay(List<Button> buttons) {
-
 
         int randomButton = 0;
         int i = 0;
@@ -59,51 +66,46 @@ public class GameModel {
             if (!buttonSet) {
                 randomButton = random.nextInt(1, 9);
             }
+
+
         }
+        if(i == buttons.size()){
+            return;}
+        setTotalMoveCounter(getTotalMoveCounter() + 1);
+
+
     }
 
     public int getTotalMoveCounter() {
         return totalMoveCounter;
     }
+
     public void setTotalMoveCounter(int totalMoveCounter) {
         this.totalMoveCounter = totalMoveCounter;
     }
 
-    public void checkWin(List<Button> buttons){
-        if(buttons.get(1) == buttons.get(2) && buttons.get(2) == buttons.get(3)) {
-            gameOver = true;
-        }
-        else if(buttons.get(4) == buttons.get(5) && buttons.get(5) == buttons.get(6)) {
-            gameOver = true;
-        }
-        else if(buttons.get(7) == buttons.get(8) && buttons.get(8) == buttons.get(9)) {
-            gameOver = true;
-        }
-        else if(buttons.get(1) == buttons.get(4) && buttons.get(4) == buttons.get(7)){
-            gameOver = true;
-        }
-        else if(buttons.get(2) == buttons.get(5) && buttons.get(5) == buttons.get(8)) {
-            gameOver = true;
-        }
-        else if(buttons.get(3) == buttons.get(6) && buttons.get(6) == buttons.get(9)) {
-            gameOver = true;
-        }
-        else if(buttons.get(1) == buttons.get(5) && buttons.get(5) == buttons.get(9)){
-            gameOver = true;
-        }
-        else if(buttons.get(3) == buttons.get(5) && buttons.get(5) == buttons.get(7)){
-            gameOver = true;
-        }
+    public boolean checkWinner(List<Button> buttons){
+        String row1 = buttons.get(0).getText() + buttons.get(1).getText() + buttons.get(2).getText();
+        String row2 = buttons.get(3).getText() + buttons.get(4).getText() + buttons.get(5).getText();
+        String row3 = buttons.get(6).getText() + buttons.get(7).getText() + buttons.get(8).getText();
+        String col1 = buttons.get(0).getText() + buttons.get(3).getText() + buttons.get(6).getText();
+        String col2 = buttons.get(1).getText() + buttons.get(4).getText() + buttons.get(7).getText();
+        String col3 = buttons.get(2).getText() + buttons.get(5).getText() + buttons.get(8).getText();
+        String diag1 = buttons.get(0).getText() + buttons.get(4).getText() + buttons.get(8).getText();
+        String diag2 = buttons.get(2).getText() + buttons.get(4).getText() + buttons.get(6).getText();
 
-        else if(totalMoveCounter == 9){
-            gameOver = true;
-        }
-        else{
-            gameOver = false;
-        }
+        if(row1.contentEquals("XXX") || row2.contentEquals("XXX") || row3.contentEquals("XXX") || col1.contentEquals("XXX") || col2.contentEquals("XXX") || col3.contentEquals("XXX") || diag1.contentEquals("XXX") || diag2.contentEquals("XXX"))
+            return true;
+        else if(row2.contentEquals("OOO") || row2.contentEquals("OOO") || row3.contentEquals("OOO") || col1.contentEquals("OOO") || col2.contentEquals("OOO") || col3.contentEquals("OOO") || diag1.contentEquals("OOO") || diag2.contentEquals("OOO"))
+            return true;
+        else
+            return false;
     }
 
 
-
-
 }
+
+
+
+
+
