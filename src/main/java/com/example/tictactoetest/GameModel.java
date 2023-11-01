@@ -2,11 +2,8 @@ package com.example.tictactoetest;
 
 
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -84,7 +81,7 @@ public class GameModel {
         this.totalMoveCounter = totalMoveCounter;
     }
 
-    public boolean checkWinner(List<Button> buttons){
+    public boolean isGameOver(List<Button> buttons){
         String row1 = buttons.get(0).getText() + buttons.get(1).getText() + buttons.get(2).getText();
         String row2 = buttons.get(3).getText() + buttons.get(4).getText() + buttons.get(5).getText();
         String row3 = buttons.get(6).getText() + buttons.get(7).getText() + buttons.get(8).getText();
@@ -98,8 +95,11 @@ public class GameModel {
             return true;
         else if(row2.contentEquals("OOO") || row2.contentEquals("OOO") || row3.contentEquals("OOO") || col1.contentEquals("OOO") || col2.contentEquals("OOO") || col3.contentEquals("OOO") || diag1.contentEquals("OOO") || diag2.contentEquals("OOO"))
             return true;
+        else if(getTotalMoveCounter() == 9)
+            return true;
         else
             return false;
+
     }
 
 

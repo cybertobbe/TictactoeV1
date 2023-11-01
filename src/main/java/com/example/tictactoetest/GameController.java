@@ -104,7 +104,23 @@ public class GameController {
                 }
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
+
+                if(gameModel.isGameOver(buttons)) {
+                    buttons.forEach(button -> button.setDisable(true));
+                    return;
+                }
                 gameModel.computerPlay(buttons);
+
+                if(gameModel.isGameOver(buttons)) {
+                    buttons.forEach(button -> button.setDisable(true));
+                    return;
+                }
+
+                    else if(gameModel.getTotalMoveCounter() > 8){
+                        buttons.forEach(button -> button.setDisable(true));
+                        return;
+                    }
+                //gameModel.computerPlay(buttons);
 
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
