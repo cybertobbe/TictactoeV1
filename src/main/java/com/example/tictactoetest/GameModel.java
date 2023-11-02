@@ -15,17 +15,12 @@ public class GameModel {
 
 
     Random random = new Random();
-
     private boolean gameOver;
     private int totalMoveCounter;
-    public String player;
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }
 
-    public boolean isGameOver() {
-        return gameOver;
-    }
 
     public GameModel() {
         gameOver = false;
@@ -91,16 +86,21 @@ public class GameModel {
         String diag1 = buttons.get(0).getText() + buttons.get(4).getText() + buttons.get(8).getText();
         String diag2 = buttons.get(2).getText() + buttons.get(4).getText() + buttons.get(6).getText();
 
-        if(row1.contentEquals("XXX") || row2.contentEquals("XXX") || row3.contentEquals("XXX") || col1.contentEquals("XXX") || col2.contentEquals("XXX") || col3.contentEquals("XXX") || diag1.contentEquals("XXX") || diag2.contentEquals("XXX"))
+        if(row1.contentEquals("XXX") || row2.contentEquals("XXX") || row3.contentEquals("XXX") || col1.contentEquals("XXX") || col2.contentEquals("XXX") || col3.contentEquals("XXX") || diag1.contentEquals("XXX") || diag2.contentEquals("XXX")) {
+
             return true;
-        else if(row2.contentEquals("OOO") || row2.contentEquals("OOO") || row3.contentEquals("OOO") || col1.contentEquals("OOO") || col2.contentEquals("OOO") || col3.contentEquals("OOO") || diag1.contentEquals("OOO") || diag2.contentEquals("OOO"))
+        }
+
+        else if(row2.contentEquals("OOO") || row2.contentEquals("OOO") || row3.contentEquals("OOO") || col1.contentEquals("OOO") || col2.contentEquals("OOO") || col3.contentEquals("OOO") || diag1.contentEquals("OOO") || diag2.contentEquals("OOO")) {
+
             return true;
-        else if(getTotalMoveCounter() == 9)
-            return true;
-        else
-            return false;
+        }
+
+        else return getTotalMoveCounter() == 9;
 
     }
+
+
 
 
 }

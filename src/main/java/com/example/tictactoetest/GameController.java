@@ -24,6 +24,7 @@ public class GameController {
     public Button eight;
     public Button nine;
     public Button resetGame;
+    public Button newGame;
     public Label moveCounter;
     public Label playerPoints;
     public Label computerPoints;
@@ -47,11 +48,14 @@ public class GameController {
         //Initialize runs after FXML is loaded and have access to them.
         buttons = Arrays.asList(one, two, three, four, five, six, seven, eight, nine);
         buttons.forEach(button -> button.setFocusTraversable(false));
-
+        //Set counter to 0
+        playerPoints.setText("Player points " + gameModel.getTotalMoveCounter());
+        moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
+        computerPoints.setText("Computer points " + gameModel.getTotalMoveCounter());
     }
 
 
-    //FXML methods
+    //PLayer plays
     public void clicked(MouseEvent mouseEvent) {
         int buttonClicked = 0;
 
@@ -109,19 +113,21 @@ public class GameController {
                     buttons.forEach(button -> button.setDisable(true));
                     return;
                 }
-                gameModel.computerPlay(buttons);
 
+        //Computer plays
+                gameModel.computerPlay(buttons);
+        //check if there is a winner
                 if(gameModel.isGameOver(buttons)) {
                     buttons.forEach(button -> button.setDisable(true));
                     return;
                 }
-
+        //check if there is a draw
                     else if(gameModel.getTotalMoveCounter() > 8){
                         buttons.forEach(button -> button.setDisable(true));
                         return;
                     }
-                //gameModel.computerPlay(buttons);
 
+        //Print number of moves
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
     }
@@ -131,7 +137,7 @@ public class GameController {
 
 
 
-
+    //Reset game board and points
     public void resetGameOnClick(MouseEvent mouseEvent) throws IOException {
         //Game plan sets back to defaults
         buttons.forEach(button -> {
@@ -147,5 +153,13 @@ public class GameController {
 
 
     }
-
+    //Reset game board  for new game but keep points
+    public void newGameOnClick(MouseEvent mouseEvent) {
+        buttons.forEach(button -> {
+            button.setText("");
+            button.setDisable(false);
+        });
+        gameModel.setTotalMoveCounter(0);
+        moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
+    }
 }

@@ -2,6 +2,8 @@ CheckWinner - ok
     name changed to isGameOver
 
 What symbol won, X or O?
+    A private global String variable that is set with X or O when a winner is found
+
 Print TicTacToe and who won
 Count up winners points +1 and update label
 
