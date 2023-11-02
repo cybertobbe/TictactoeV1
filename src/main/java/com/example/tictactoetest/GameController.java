@@ -1,6 +1,9 @@
 package com.example.tictactoetest;
 
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
@@ -8,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import java.util.Optional;
 
 
 public class GameController {
@@ -49,9 +52,9 @@ public class GameController {
         buttons = Arrays.asList(one, two, three, four, five, six, seven, eight, nine);
         buttons.forEach(button -> button.setFocusTraversable(false));
         //Set counter to 0
-        playerPoints.setText("Player points " + gameModel.getTotalMoveCounter());
+        playerPoints.setText("Player points " + gameModel.getPlayerPoints());
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-        computerPoints.setText("Computer points " + gameModel.getTotalMoveCounter());
+        computerPoints.setText("Computer points " + gameModel.getComputerPoints());
     }
 
 
@@ -108,21 +111,32 @@ public class GameController {
                 }
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
-
+        //check if there is a winner after player plays
                 if(gameModel.isGameOver(buttons)) {
                     buttons.forEach(button -> button.setDisable(true));
+                    updatePoints();
                     return;
                 }
 
         //Computer plays
                 gameModel.computerPlay(buttons);
-        //check if there is a winner
+        //check if there is a winner after computer plays
                 if(gameModel.isGameOver(buttons)) {
                     buttons.forEach(button -> button.setDisable(true));
+                    if(gameModel.winningLine.contentEquals("XXX")){
+                            updatePoints();
+                    }
+                    else if(gameModel.winningLine.contentEquals("OOO")){
+                            updatePoints();
+
+
+
+                    }
+
                     return;
                 }
         //check if there is a draw
-                    else if(gameModel.getTotalMoveCounter() > 8){
+                    else if(gameModel.getTotalMoveCounter() == 9){
                         buttons.forEach(button -> button.setDisable(true));
                         return;
                     }
@@ -130,11 +144,16 @@ public class GameController {
         //Print number of moves
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
+
     }
 
 
 
 
+    private void updatePoints() {
+        playerPoints.setText("Player points " + gameModel.getPlayerPoints());
+        computerPoints.setText("Computer points " + gameModel.getComputerPoints());
+    }
 
 
     //Reset game board and points
@@ -145,6 +164,8 @@ public class GameController {
             button.setDisable(false);
         });
         gameModel.setTotalMoveCounter(0);
+        gameModel.setPlayerPoints(0);
+        gameModel.setComputerPoints(0);
         playerPoints.setText("Player points " + gameModel.getTotalMoveCounter());
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         computerPoints.setText("Computer points " + gameModel.getTotalMoveCounter());

@@ -9,11 +9,12 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
+
     <top>
         <HBox alignment="TOP_CENTER" spacing="50">
-            <Label fx:id="playerPoints" text="Player points: " />
+            <Label fx:id="playerPoints" text="Player points: " style="-fx-font-weight: bold"/>
             <Label fx:id="moveCounter" text="Moves: " />
-            <Label fx:id="computerPoints" text="ComputerPoints: " />
+            <Label fx:id="computerPoints" text="ComputerPoints: " style="-fx-font-weight: bold" />
         </HBox>
     </top>
 

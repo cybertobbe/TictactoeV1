@@ -1,29 +1,21 @@
 package com.example.tictactoetest;
 
-
 import javafx.scene.control.Button;
-
-
 import java.util.List;
 import java.util.Random;
-
-
-
 
 
 public class GameModel {
 
 
     Random random = new Random();
-    private boolean gameOver;
     private int totalMoveCounter;
-    public void setGameOver(boolean gameOver) {
-        this.gameOver = gameOver;
-    }
-
+    public String winningLine = "";
+    private int playerPoints;
+    private int computerPoints;
 
     public GameModel() {
-        gameOver = false;
+
         totalMoveCounter = 0;
 
     }
@@ -33,10 +25,9 @@ public class GameModel {
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
 
-
     }
 
-    //is this called every second time?
+
     public void computerPlay(List<Button> buttons) {
 
         int randomButton = 0;
@@ -62,7 +53,8 @@ public class GameModel {
 
         }
         if(i == buttons.size()){
-            return;}
+            return;
+        }
         setTotalMoveCounter(getTotalMoveCounter() + 1);
 
 
@@ -87,12 +79,14 @@ public class GameModel {
         String diag2 = buttons.get(2).getText() + buttons.get(4).getText() + buttons.get(6).getText();
 
         if(row1.contentEquals("XXX") || row2.contentEquals("XXX") || row3.contentEquals("XXX") || col1.contentEquals("XXX") || col2.contentEquals("XXX") || col3.contentEquals("XXX") || diag1.contentEquals("XXX") || diag2.contentEquals("XXX")) {
-
+            winningLine = "XXX";
+            setPlayerPoints(getPlayerPoints() + 1);
             return true;
         }
 
         else if(row2.contentEquals("OOO") || row2.contentEquals("OOO") || row3.contentEquals("OOO") || col1.contentEquals("OOO") || col2.contentEquals("OOO") || col3.contentEquals("OOO") || diag1.contentEquals("OOO") || diag2.contentEquals("OOO")) {
-
+            winningLine = "OOO";
+            setComputerPoints(getComputerPoints() + 1);
             return true;
         }
 
@@ -101,8 +95,21 @@ public class GameModel {
     }
 
 
+    public int getPlayerPoints() {
+        return playerPoints;
+    }
 
+    public void setPlayerPoints(int playerPoints) {
+        this.playerPoints = playerPoints;
+    }
 
+    public int getComputerPoints() {
+        return computerPoints;
+    }
+
+    public void setComputerPoints(int computerPoints) {
+        this.computerPoints = computerPoints;
+    }
 }
 
 
