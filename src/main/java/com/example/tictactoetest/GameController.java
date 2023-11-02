@@ -31,6 +31,7 @@ public class GameController {
     public Label moveCounter;
     public Label playerPoints;
     public Label computerPoints;
+    public Label winner;
     public List<Button> buttons = new ArrayList<>();
 
     private final GameModel gameModel = new GameModel();
@@ -111,30 +112,43 @@ public class GameController {
                 }
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
+
+
+
+
         //check if there is a winner after player plays
                 if(gameModel.isGameOver(buttons)) {
                     buttons.forEach(button -> button.setDisable(true));
                     updatePoints();
+                    showWinner();
                     return;
                 }
 
+
+
+
         //Computer plays
                 gameModel.computerPlay(buttons);
+
+
+
+
         //check if there is a winner after computer plays
                 if(gameModel.isGameOver(buttons)) {
                     buttons.forEach(button -> button.setDisable(true));
                     if(gameModel.winningLine.contentEquals("XXX")){
                             updatePoints();
+                            showWinner();
                     }
                     else if(gameModel.winningLine.contentEquals("OOO")){
                             updatePoints();
-
-
-
+                            showWinner();
                     }
 
                     return;
                 }
+
+
         //check if there is a draw
                     else if(gameModel.getTotalMoveCounter() == 9){
                         buttons.forEach(button -> button.setDisable(true));
@@ -147,7 +161,18 @@ public class GameController {
 
     }
 
+    private void showWinner() {
 
+        if(gameModel.winningLine.contentEquals("XXX")){
+            winner.setText("Player wins in " + gameModel.getTotalMoveCounter() + " moves!");
+        }
+        else if(gameModel.winningLine.contentEquals("OOO")){
+            winner.setText("Computer wins in " + gameModel.getTotalMoveCounter() + " moves!");
+        }
+        else if(gameModel.getTotalMoveCounter() == 9){
+            winner.setText("Draw!");
+        }
+    }
 
 
     private void updatePoints() {
@@ -166,9 +191,10 @@ public class GameController {
         gameModel.setTotalMoveCounter(0);
         gameModel.setPlayerPoints(0);
         gameModel.setComputerPoints(0);
-        playerPoints.setText("Player points " + gameModel.getTotalMoveCounter());
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-        computerPoints.setText("Computer points " + gameModel.getTotalMoveCounter());
+        playerPoints.setText("Player points " + gameModel.getPlayerPoints());
+        computerPoints.setText("Computer points " + gameModel.getComputerPoints());
+        winner.setText("");
 
 
 
@@ -182,5 +208,8 @@ public class GameController {
         });
         gameModel.setTotalMoveCounter(0);
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
+        winner.setText("");
+
+
     }
 }
