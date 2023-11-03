@@ -1,17 +1,15 @@
 package com.example.tictactoetest;
 
-import javafx.application.Platform;
-import javafx.scene.control.Alert;
+
+
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+
 
 
 public class GameController {
@@ -33,6 +31,7 @@ public class GameController {
     public Label computerPoints;
     public Label winner;
     public List<Button> buttons = new ArrayList<>();
+
 
     private final GameModel gameModel = new GameModel();
 

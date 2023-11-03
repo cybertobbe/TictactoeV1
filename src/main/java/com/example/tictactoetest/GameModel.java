@@ -1,6 +1,8 @@
 package com.example.tictactoetest;
 
 import javafx.scene.control.Button;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -28,7 +30,11 @@ public class GameModel {
     }
 
 
-    public void computerPlay(List<Button> buttons) {
+    public void computerPlay( List<Button> buttons) {
+
+        List<String> buttonsAsString = new ArrayList<>();
+        buttons.forEach(button -> buttonsAsString.add(button.getText()));
+
 
         int randomButton = 0;
         int i = 0;
@@ -36,7 +42,7 @@ public class GameModel {
 
         randomButton = random.nextInt(1, 9);
         boolean buttonSet = false;
-
+    //Valid button is found
         while (!buttonSet) {
             for (i = 0; i < buttons.size(); i++) {
                 if (i == randomButton && !buttons.get(i).isDisabled()) {
