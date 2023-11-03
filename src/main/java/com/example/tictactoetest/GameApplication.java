@@ -17,7 +17,7 @@ public class GameApplication extends Application {
         stage.setTitle("TicTacToe");
         stage.setScene(scene);
         stage.show();
-        //stage.setResizable(false);
+        stage.setResizable(false);
 
     }
 
