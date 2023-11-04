@@ -149,7 +149,7 @@ public class GameController {
 
 
         //check if there is a draw
-                    else if(gameModel.getTotalMoveCounter() == 9){
+                    else if(gameModel.getTotalMoveCounter() > 8){
                         buttons.forEach(button -> button.setDisable(true));
                         showWinner();
                         return;
@@ -169,7 +169,7 @@ public class GameController {
         else if(gameModel.winningLine.contentEquals("OOO")){
             winner.setText("Computer wins in " + gameModel.getTotalMoveCounter() + " moves!");
         }
-        else{
+        else if(gameModel.getTotalMoveCounter() == 9){
             winner.setText("Draw!");
         }
     }

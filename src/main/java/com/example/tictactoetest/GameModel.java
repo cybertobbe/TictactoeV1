@@ -32,6 +32,7 @@ public class GameModel {
 
     public void computerPlay( List<Button> buttons) {
 
+        //Create a copy of buttons list as list of strings for test
         List<String> buttonsAsString = new ArrayList<>();
         buttons.forEach(button -> buttonsAsString.add(button.getText()));
 
@@ -96,10 +97,15 @@ public class GameModel {
             return true;
         }
 
-        else return getTotalMoveCounter() == 9;
+        else if(getTotalMoveCounter() == 9){
+            winningLine = "Draw";
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
-
 
     public int getPlayerPoints() {
         return playerPoints;
