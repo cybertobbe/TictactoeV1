@@ -30,12 +30,12 @@ public class GameModel {
     }
 
 
-    public void computerPlay( List<Button> buttons) {
+    public void computerPlay(List<Button> buttons) {
 
         //Create a copy of buttons list as list of strings for test
         List<String> buttonsAsString = new ArrayList<>();
         buttons.forEach(button -> buttonsAsString.add(button.getText()));
-
+        System.out.println(buttonsAsString);
 
         int randomButton = 0;
         int i = 0;
@@ -44,6 +44,16 @@ public class GameModel {
         randomButton = random.nextInt(1, 9);
         boolean buttonSet = false;
     //Valid button is found
+        if (findValidMove(buttons, buttonSet, i, randomButton)) return;
+        setTotalMoveCounter(getTotalMoveCounter() + 1);
+
+
+    }
+
+
+
+    //Extracted method from computerPlay
+    private boolean findValidMove(List<Button> buttons, boolean buttonSet, int i, int randomButton) {
         while (!buttonSet) {
             for (i = 0; i < buttons.size(); i++) {
                 if (i == randomButton && !buttons.get(i).isDisabled()) {
@@ -60,12 +70,13 @@ public class GameModel {
 
         }
         if(i == buttons.size()){
-            return;
+            return true;
         }
-        setTotalMoveCounter(getTotalMoveCounter() + 1);
-
-
+        return false;
     }
+
+
+
 
     public int getTotalMoveCounter() {
         return totalMoveCounter;
