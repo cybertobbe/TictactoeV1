@@ -31,41 +31,76 @@ public class GameModel {
     }
 
 
-    public void computerPlay( List<Button> buttons) {
+    public void computerPlay(List<Button> buttons) {
 
-        //Array of Enum with all buttons 1-9
-        ButtonsAsEnum[] buttonsAsEnum = ButtonsAsEnum.values();
-
-
+        List<String> buttonsIsDisabled = new ArrayList<>();
         int randomButton = 0;
         int i = 0;
-
+        copyButtonsIsDisabledToStrings(buttons, buttonsIsDisabled);
 
         randomButton = random.nextInt(1, 9);
-        boolean validButton = false;
-    //Valid button is found
-        while (!validButton) {
-            for (i = 0; i < buttons.size(); i++) {
-                if (i == randomButton && !buttons.get(i).isDisabled()) {
-                    buttons.get(i).setText("O");
-                    buttons.get(i).setDisable(true);
-                    validButton = true;
-                    break;
-                }
-            }
-            if (!validButton) {
-                randomButton = random.nextInt(1, 9);
-            }
-
-
+        String buttonId = "";
+        while(buttonId.isEmpty()){
+            randomButton = random.nextInt(1, 9);
+            buttonId = isValidMove(buttonsIsDisabled, randomButton);
         }
-        if(i == buttons.size()){
-            return;
-        }
+        buttons.get(randomButton).setText("O");
+        buttons.get(randomButton).setDisable(true);
+
         setTotalMoveCounter(getTotalMoveCounter() + 1);
 
 
     }
+
+    //copy buttons id to list of Strings
+    public void copyButtonsIsDisabledToStrings(List<Button> buttons, List<String> buttonsIsDisabled){
+        for (Button button : buttons) {
+            if (button.isDisabled()) {
+                buttonsIsDisabled.add((button.getId()));
+            }
+        }
+    }
+
+    String isValidMove(List<String> buttonsIsDisabled, int randomButton){
+
+        ButtonsAsEnum button1 = ButtonsAsEnum.One;
+        ButtonsAsEnum button2 = ButtonsAsEnum.Two;
+        ButtonsAsEnum button3 = ButtonsAsEnum.Three;
+        ButtonsAsEnum button4 = ButtonsAsEnum.Four;
+        ButtonsAsEnum button5 = ButtonsAsEnum.Five;
+        ButtonsAsEnum button6 = ButtonsAsEnum.Six;
+        ButtonsAsEnum button7 = ButtonsAsEnum.Seven;
+        ButtonsAsEnum button8 = ButtonsAsEnum.Eight;
+        ButtonsAsEnum button9 = ButtonsAsEnum.Nine;
+        String buttonId = "";
+        for (String s : buttonsIsDisabled) {
+
+            if (randomButton == 1 && !s.equals(button1.toString())) {
+                buttonId = ButtonsAsEnum.One.toString();
+            } else if (randomButton == 2 && !s.equals(button2.toString())) {
+                buttonId = ButtonsAsEnum.Two.toString();
+            } else if (randomButton == 3 && !s.equals(button3.toString())) {
+                buttonId = ButtonsAsEnum.Three.toString();
+            } else if (randomButton == 4 && !s.equals(button4.toString())) {
+                buttonId = ButtonsAsEnum.Four.toString();
+            } else if (randomButton == 5 && !s.equals(button5.toString())) {
+                buttonId = ButtonsAsEnum.Five.toString();
+            } else if (randomButton == 6 && !s.equals(button6.toString())) {
+                buttonId = ButtonsAsEnum.Six.toString();
+            } else if (randomButton == 7 && !s.equals(button7.toString())) {
+                buttonId = ButtonsAsEnum.Seven.toString();
+            } else if (randomButton == 8 && !s.equals(button8.toString())) {
+                buttonId = ButtonsAsEnum.Eight.toString();
+            } else if (randomButton == 9 && !s.equals(button9.toString())) {
+                buttonId = ButtonsAsEnum.Nine.toString();
+            }
+
+        }
+        return buttonId;
+
+    }
+
+
 
     public int getTotalMoveCounter() {
         return totalMoveCounter;
