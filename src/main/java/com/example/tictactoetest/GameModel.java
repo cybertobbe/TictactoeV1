@@ -32,7 +32,7 @@ public class GameModel {
 
 
     public void computerPlay(List<Button> buttons) {
-
+        ;
         List<String> buttonsIsDisabled = new ArrayList<>();
         int randomButton = 0;
         int i = 0;
@@ -48,7 +48,7 @@ public class GameModel {
         buttons.get(randomButton).setDisable(true);
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-
+        System.out.println(buttonsIsDisabled);
 
     }
 
