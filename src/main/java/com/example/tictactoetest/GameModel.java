@@ -3,6 +3,7 @@ package com.example.tictactoetest;
 import javafx.scene.control.Button;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 //New Branch
@@ -32,9 +33,8 @@ public class GameModel {
 
     public void computerPlay( List<Button> buttons) {
 
-        //Create a copy of buttons list as list of strings for test
-        List<String> buttonsAsString = new ArrayList<>();
-        buttons.forEach(button -> buttonsAsString.add(button.getText()));
+        //Array of Enum with all buttons 1-9
+        ButtonsAsEnum[] buttonsAsEnum = ButtonsAsEnum.values();
 
 
         int randomButton = 0;
@@ -42,18 +42,18 @@ public class GameModel {
 
 
         randomButton = random.nextInt(1, 9);
-        boolean buttonSet = false;
+        boolean validButton = false;
     //Valid button is found
-        while (!buttonSet) {
+        while (!validButton) {
             for (i = 0; i < buttons.size(); i++) {
                 if (i == randomButton && !buttons.get(i).isDisabled()) {
                     buttons.get(i).setText("O");
                     buttons.get(i).setDisable(true);
-                    buttonSet = true;
+                    validButton = true;
                     break;
                 }
             }
-            if (!buttonSet) {
+            if (!validButton) {
                 randomButton = random.nextInt(1, 9);
             }
 
@@ -122,6 +122,18 @@ public class GameModel {
     public void setComputerPoints(int computerPoints) {
         this.computerPoints = computerPoints;
     }
+}
+
+enum ButtonsAsEnum{
+    One,
+    Two,
+    Three,
+    Four,
+    Five,
+    Six,
+    Seven,
+    Eight,
+    Nine
 }
 
 
