@@ -115,7 +115,7 @@ public class GameController {
 
 
 
-        //check if there is a winner after player plays
+        //check if there is a winner after players move
                 if(gameModel.isGameOver(buttons)) {
                     buttons.forEach(button -> button.setDisable(true));
                     updatePoints();
@@ -132,7 +132,7 @@ public class GameController {
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
 
-        //check if there is a winner after computer plays
+        //check if there is a winner after computers move
                 if(gameModel.isGameOver(buttons)) {
                     buttons.forEach(button -> button.setDisable(true));
                     if(gameModel.winningLine.contentEquals("XXX")){
