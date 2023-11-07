@@ -1,4 +1,18 @@
 
+List <String> allButtons [9]
+i model
+
+skicka med till computerPLay()
+convert buttonID till int?
+
+compare intrandom with intButtonID
+index in allButtons that corresponds to intButtonID mark as played and disable corresponding button
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
 OK
 CheckWinner - ok
     name changed to isGameOver
