@@ -128,7 +128,7 @@ public class GameController {
 
 
         //Computer plays
-                gameModel.computerPlay(buttons);
+                gameModel.computerPlay(gameModel.allButtons);
 
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
