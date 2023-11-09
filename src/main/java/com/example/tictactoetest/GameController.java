@@ -210,6 +210,7 @@ public class GameController {
         });
         gameModel.setTotalMoveCounter(0);
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
+        gameModel.allButtons.clear();
         winner.setText("");
 
 
