@@ -191,6 +191,7 @@ public class GameController {
         gameModel.setTotalMoveCounter(0);
         gameModel.setPlayerPoints(0);
         gameModel.setComputerPoints(0);
+        gameModel.buttonsClickedAsInt.clear();
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         playerPoints.setText("Player points " + gameModel.getPlayerPoints());
         computerPoints.setText("Computer points " + gameModel.getComputerPoints());
@@ -206,6 +207,7 @@ public class GameController {
             button.setText("");
             button.setDisable(false);
         });
+        gameModel.buttonsClickedAsInt.clear();
         gameModel.setTotalMoveCounter(0);
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         winner.setText("");

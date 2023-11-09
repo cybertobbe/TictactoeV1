@@ -16,8 +16,7 @@ public class GameModel {
     public String winningLine = "";
     private int playerPoints;
     private int computerPoints;
-    List<Integer> buttonsIsDisabled = new ArrayList<>(); //Takes buttonClicked from GameController and adds it to list
-
+    List<Integer> buttonsClickedAsInt = new ArrayList<>(); //Takes buttonClicked from GameController and adds it to list
 
     public GameModel() {
 
@@ -29,19 +28,38 @@ public class GameModel {
         //This method is called from GameController when a button is clicked
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-
+        buttonsClickedAsInt.add(buttonClicked);
+        System.out.println(buttonsClickedAsInt);
     }
 
 
     public void computerPlay(List<Button> buttons) {
 
+        //continue here. Make a list of buttons clicked and check if the random number is in the list. If it is, generate a new random number.
+        int computerClickButton = random.nextInt(1,9);
+        while(buttonsClickedAsInt.contains(computerClickButton)){
+            computerClickButton = random.nextInt(1,9);
+            isButtonClicked(computerClickButton);
+
+
+        }
+        buttons.get(computerClickButton).setText("O");
+        buttons.get(computerClickButton).setDisable(true);
+        buttonsClickedAsInt.add(computerClickButton);
         setTotalMoveCounter(getTotalMoveCounter() + 1);
 
 
     }
 
 
+    public boolean isButtonClicked(int computerClickButton) {
+        if(buttonsClickedAsInt.contains(computerClickButton)){
+            return true;
+        }
+        else
 
+            return false;
+    }
 
 
     public int getTotalMoveCounter() {
