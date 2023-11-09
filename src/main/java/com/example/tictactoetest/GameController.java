@@ -112,8 +112,8 @@ public class GameController {
                 }
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
-
-
+        System.out.println(gameModel.allButtons);
+        
 
 
         //check if there is a winner after players move
@@ -192,6 +192,7 @@ public class GameController {
         gameModel.setTotalMoveCounter(0);
         gameModel.setPlayerPoints(0);
         gameModel.setComputerPoints(0);
+        gameModel.allButtons.clear();
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         playerPoints.setText("Player points " + gameModel.getPlayerPoints());
         computerPoints.setText("Computer points " + gameModel.getComputerPoints());
