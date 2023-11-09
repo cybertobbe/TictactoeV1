@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-//New Branch
+//New Branch Cleared model
 
 public class GameController {
 
