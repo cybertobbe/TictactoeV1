@@ -32,7 +32,7 @@ public class GameController {
     public Label computerPoints;
     public Label winner;
     public List<Button> buttons = new ArrayList<>();
-
+    public List<Integer> allButtons = new ArrayList<>();       //List of all buttons as integers
 
     private final GameModel gameModel = new GameModel();
 
@@ -52,6 +52,7 @@ public class GameController {
         //Initialize runs after FXML is loaded and have access to them.
         buttons = Arrays.asList(one, two, three, four, five, six, seven, eight, nine);
         buttons.forEach(button -> button.setFocusTraversable(false));
+        allButtons = Arrays.asList(1,2,3,4,5,6,7,8,9); //Add all buttons to list
         //Set counter to 0
         playerPoints.setText("Player points " + gameModel.getPlayerPoints());
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
@@ -112,7 +113,7 @@ public class GameController {
                 }
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
-        System.out.println(gameModel.allButtons);
+
         
 
 
@@ -128,7 +129,7 @@ public class GameController {
 
 
         //Computer plays
-                gameModel.computerPlay(gameModel.allButtons);
+                gameModel.computerPlay();
 
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
@@ -192,7 +193,6 @@ public class GameController {
         gameModel.setTotalMoveCounter(0);
         gameModel.setPlayerPoints(0);
         gameModel.setComputerPoints(0);
-        gameModel.allButtons.clear();
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         playerPoints.setText("Player points " + gameModel.getPlayerPoints());
         computerPoints.setText("Computer points " + gameModel.getComputerPoints());
@@ -210,7 +210,6 @@ public class GameController {
         });
         gameModel.setTotalMoveCounter(0);
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-        gameModel.allButtons.clear();
         winner.setText("");
 
 

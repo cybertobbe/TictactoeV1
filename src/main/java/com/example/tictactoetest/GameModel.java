@@ -18,24 +18,27 @@ public class GameModel {
     private int playerPoints;
     private int computerPoints;
 
-    List<String> allButtons = new ArrayList<>();
+
+
 
 
     public GameModel() {
 
         totalMoveCounter = 0;
 
+
     }
 
     public void playerClick(int buttonClicked) {
         //This method is called from GameController when a button is clicked
-        allButtons.add(String.valueOf(buttonClicked));
+
+
         setTotalMoveCounter(getTotalMoveCounter() + 1);
 
     }
 
 
-    public void computerPlay(List<String> allButtons) {
+    public void computerPlay() {
 
         int randomMove = random.nextInt(1,9);
 
