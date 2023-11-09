@@ -32,10 +32,6 @@ public class GameModel {
 
     public void computerPlay( List<Button> buttons) {
 
-        //Create a copy of buttons list as list of strings for test
-        List<String> buttonsAsString = new ArrayList<>();
-        buttons.forEach(button -> buttonsAsString.add(button.getText()));
-
 
         int randomButton = 0;
         int i = 0;
