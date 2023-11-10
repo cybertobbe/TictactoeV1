@@ -2,8 +2,11 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<!--New Branch - 1 CLEAN-->
+
+<!--New Branch - 2 images in fxml-->
+
 <BorderPane prefHeight="700" prefWidth="642.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tictactoetest.GameController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -23,26 +26,43 @@
     <center>
         <VBox spacing="1">
             <HBox alignment="CENTER" spacing="50">
-                <Label fx:id="winner" style="-fx-font-weight: bold; -fx-font-size: 20; -fx-text-fill: Green"/>
+                <Label fx:id="winner" style="-fx-font-weight: bold; -fx-font-size: 20; -fx-text-fill: Green" />
 
             </HBox>
             <HBox alignment="CENTER" spacing="1">
-                <Button fx:id="one" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
-                <Button fx:id="two" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
-                <Button fx:id="three" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
-
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../default.png"/>
+                </ImageView>
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../default.png"/>
+                </ImageView>
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../default.png"/>
+                </ImageView>
             </HBox>
 
             <HBox alignment="CENTER" spacing="1">
-                <Button fx:id="four" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
-                <Button fx:id="five" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
-                <Button fx:id="six" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../default.png"/>
+                </ImageView>
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
+                    <Image url="@../../../default.png"/>
+                </ImageView>
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
+                    <Image url="@../../../default.png"/>
+                </ImageView>
             </HBox>
 
             <HBox alignment="CENTER" spacing="1">
-                <Button fx:id="seven" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
-                <Button fx:id="eight" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
-                <Button fx:id="nine" onMouseClicked="#clicked" prefHeight="200" prefWidth="200" style="-fx-font-size: 35; -fx-text-fill: Red" />
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
+                    <Image url="@../../../default.png"/>
+                </ImageView>
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
+                    <Image url="@../../../default.png"/>
+                </ImageView>
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
+                    <Image url="@../../../default.png"/>
+                </ImageView>
             </HBox>
 
         </VBox>
@@ -50,8 +70,8 @@
     </center>
     <bottom>
         <HBox alignment="CENTER" spacing="20">
-            <Button fx:id="resetGame" onMouseClicked="#resetGameOnClick" text="Reset" />
-            <Button fx:id="newGame" onMouseClicked="#newGameOnClick" text="Play again" />
+            <Button fx:id="resetGame" text="Reset" />
+            <Button fx:id="newGame" text="Play again" />
         </HBox>
     </bottom>
 

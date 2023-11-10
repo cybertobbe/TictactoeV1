@@ -15,11 +15,11 @@ public class GameApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("game-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 720);
+        Scene scene = new Scene(fxmlLoader.load(), 750, 750);
         stage.setTitle("TicTacToe");
         stage.setScene(scene);
         stage.show();
-        stage.setResizable(false);
+
 
     }
 

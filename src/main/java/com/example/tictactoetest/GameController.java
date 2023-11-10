@@ -11,9 +11,14 @@ import java.util.Arrays;
 import java.util.List;
 
 //New Branch
-// 1 - CLEAN
+// 2 - Images in FXML
 
 public class GameController {
 
 
+      public Label playerPoints;
+      public Label moveCounter;
+      public Label computerPoints;
+      public Button resetGame;
+      public Button newGame;
 }
