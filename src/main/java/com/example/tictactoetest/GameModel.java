@@ -2,11 +2,9 @@ package com.example.tictactoetest;
 
 import javafx.scene.control.Button;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 //New Branch
+//new int list in model
 
 public class GameModel {
 
@@ -16,11 +14,10 @@ public class GameModel {
     public String winningLine = "";
     private int playerPoints;
     private int computerPoints;
-    List<Integer> buttonsClickedAsInt = new ArrayList<>(); //Takes buttonClicked from GameController and adds it to list
+    List<Integer> buttonsClickedAsInt = new ArrayList<>(Collections.nCopies(9, 0)); //Takes buttonClicked from GameController and adds it to list
 
     public GameModel() {
-
-        totalMoveCounter = 0;
+                totalMoveCounter = 0;
 
     }
 
@@ -28,7 +25,7 @@ public class GameModel {
         //This method is called from GameController when a button is clicked
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-        buttonsClickedAsInt.add(buttonClicked);
+        buttonsClickedAsInt.set(buttonClicked-1, buttonClicked);    //Sets the buttonClicked to the list at corresponding index, -1
         System.out.println(buttonsClickedAsInt);
     }
 
@@ -38,26 +35,24 @@ public class GameModel {
         //continue here. Make a list of buttons clicked and check if the random number is in the list. If it is, generate a new random number.
         int computerClickButton = random.nextInt(1,9);
         while(buttonsClickedAsInt.contains(computerClickButton)){
-            computerClickButton = random.nextInt(1,9);
             isButtonClicked(computerClickButton);
-
+            computerClickButton = random.nextInt(1,9);
 
         }
         buttons.get(computerClickButton).setText("O");
         buttons.get(computerClickButton).setDisable(true);
-        buttonsClickedAsInt.add(computerClickButton);
+        buttonsClickedAsInt.set(computerClickButton-1, computerClickButton);
         setTotalMoveCounter(getTotalMoveCounter() + 1);
 
 
     }
 
 
-    public boolean isButtonClicked(int computerClickButton) {
+    public boolean isButtonClicked(int computerClickButton){
         if(buttonsClickedAsInt.contains(computerClickButton)){
             return true;
         }
         else
-
             return false;
     }
 

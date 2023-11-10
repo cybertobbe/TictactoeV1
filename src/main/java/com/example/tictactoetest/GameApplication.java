@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 //New Branch
-//Cleared model
+//new int list in model
 
 public class GameApplication extends Application {
 
