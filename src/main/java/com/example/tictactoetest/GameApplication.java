@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 //New Branch
-//Cleared model
+// 5 - no buttons to model
 
 public class GameApplication extends Application {
 

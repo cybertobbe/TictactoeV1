@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-//New Branch Cleared model
+//New Branch
+// 5 - no buttons to model
 
 public class GameController {
 
@@ -31,7 +32,7 @@ public class GameController {
     public Label computerPoints;
     public Label winner;
     public List<Button> buttons = new ArrayList<>();
-
+    List<Integer> buttonsClickedAsInt = new ArrayList<>();
 
     private final GameModel gameModel = new GameModel();
 
@@ -55,6 +56,8 @@ public class GameController {
         playerPoints.setText("Player points " + gameModel.getPlayerPoints());
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         computerPoints.setText("Computer points " + gameModel.getComputerPoints());
+
+        buttonsClickedAsInt = Arrays.asList(0,0,0,0,0,0,0,0,0);
     }
 
 
@@ -66,48 +69,48 @@ public class GameController {
                     one.setText("X");
                     one.setDisable(true);
                     buttonClicked = 1;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
                 } else if (mouseEvent.getSource() == two) {
                     two.setText("X");
                     two.setDisable(true);
                     buttonClicked = 2;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
                 } else if (mouseEvent.getSource() == three) {
                     three.setText("X");
                     three.setDisable(true);
                     buttonClicked = 3;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
                 } else if (mouseEvent.getSource() == four) {
                     four.setText("X");
                     four.setDisable(true);
                     buttonClicked = 4;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
                 } else if (mouseEvent.getSource() == five) {
                     five.setText("X");
                     five.setDisable(true);
                     buttonClicked = 5;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
                 } else if (mouseEvent.getSource() == six) {
                     six.setText("X");
                     six.setDisable(true);
                     buttonClicked = 6;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
                 } else if (mouseEvent.getSource() == seven) {
                     seven.setText("X");
                     seven.setDisable(true);
                     buttonClicked = 7;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
                 } else if (mouseEvent.getSource() == eight) {
                     eight.setText("X");
                     eight.setDisable(true);
                     buttonClicked = 8;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
 
                 } else if (mouseEvent.getSource() == nine) {
                     nine.setText("X");
                     nine.setDisable(true);
                     buttonClicked = 9;
-                    gameModel.playerClick(buttonClicked);
+                    gameModel.playerClick(buttonClicked, buttonsClickedAsInt);
                 }
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
@@ -127,7 +130,7 @@ public class GameController {
 
 
         //Computer plays
-                gameModel.computerPlay(buttons);
+                gameModel.computerPlay(buttonsClickedAsInt);
 
                 moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
@@ -191,7 +194,7 @@ public class GameController {
         gameModel.setTotalMoveCounter(0);
         gameModel.setPlayerPoints(0);
         gameModel.setComputerPoints(0);
-        gameModel.buttonsClickedAsInt.clear();
+        buttonsClickedAsInt.clear();
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         playerPoints.setText("Player points " + gameModel.getPlayerPoints());
         computerPoints.setText("Computer points " + gameModel.getComputerPoints());
@@ -207,7 +210,7 @@ public class GameController {
             button.setText("");
             button.setDisable(false);
         });
-        gameModel.buttonsClickedAsInt.clear();
+        buttonsClickedAsInt.clear();
         gameModel.setTotalMoveCounter(0);
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
         winner.setText("");
