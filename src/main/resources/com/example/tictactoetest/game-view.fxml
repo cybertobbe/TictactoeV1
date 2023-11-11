@@ -30,38 +30,38 @@
 
             </HBox>
             <HBox alignment="CENTER" spacing="1">
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../../default.png"/>
+                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
+                    <Image url="@../../../default.png" fx:id="one" />
                 </ImageView>
                 <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../../default.png"/>
+                    <Image url="@../../../default.png" fx:id="two"/>
                 </ImageView>
                 <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../../default.png"/>
+                    <Image url="@../../../default.png" fx:id="three"/>
                 </ImageView>
             </HBox>
 
             <HBox alignment="CENTER" spacing="1">
                 <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../../default.png"/>
+                    <Image url="@../../../default.png" fx:id="four"/>
                 </ImageView>
                 <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
-                    <Image url="@../../../default.png"/>
+                    <Image url="@../../../default.png" fx:id="five"/>
                 </ImageView>
                 <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
-                    <Image url="@../../../default.png"/>
+                    <Image url="@../../../default.png" fx:id="six"/>
                 </ImageView>
             </HBox>
 
             <HBox alignment="CENTER" spacing="1">
                 <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
-                    <Image url="@../../../default.png"/>
+                    <Image url="@../../../default.png" fx:id="seven"/>
                 </ImageView>
                 <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
-                    <Image url="@../../../default.png"/>
+                    <Image url="@../../../default.png" fx:id="eight"/>
                 </ImageView>
                 <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" >
-                    <Image url="@../../../default.png"/>
+                    <Image url="@../../../default.png" fx:id="nine"/>
                 </ImageView>
             </HBox>
 
@@ -70,7 +70,7 @@
     </center>
     <bottom>
         <HBox alignment="CENTER" spacing="20">
-            <Button fx:id="resetGame" text="Reset" />
+            <Button fx:id="resetGame" text="Reset"/>
             <Button fx:id="newGame" text="Play again" />
         </HBox>
     </bottom>

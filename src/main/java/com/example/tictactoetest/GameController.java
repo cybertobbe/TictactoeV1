@@ -4,6 +4,8 @@ package com.example.tictactoetest;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,4 +23,20 @@ public class GameController {
       public Label computerPoints;
       public Button resetGame;
       public Button newGame;
+      public Image one;
+      public Image two;
+      public Image three;
+      public Image four;
+      public Image five;
+      public Image six;
+      public Image seven;
+      public Image eight;
+      public Image nine;
+
+      public void clicked(MouseEvent mouseEvent){
+            if(mouseEvent.getSource() == one){
+                  ImageView imageView = (ImageView) mouseEvent.getSource();
+                  imageView.setImage(new Image("file:src/main/resources/images/x.png"));
+            }
+      }
 }
