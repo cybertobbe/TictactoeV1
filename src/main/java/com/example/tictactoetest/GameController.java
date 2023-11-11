@@ -33,10 +33,17 @@ public class GameController {
       public Image eight;
       public Image nine;
 
+
+      public void initialize(){
+
+      }
+
+
       public void clicked(MouseEvent mouseEvent){
             if(mouseEvent.getSource() == one){
                   ImageView imageView = (ImageView) mouseEvent.getSource();
-                  imageView.setImage(new Image("file:src/main/resources/images/x.png"));
+
+
             }
       }
 }
