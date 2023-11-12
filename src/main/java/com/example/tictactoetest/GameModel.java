@@ -2,10 +2,7 @@ package com.example.tictactoetest;
 
 import javafx.scene.control.Button;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 //New Branch
 
 public class GameModel {
@@ -23,23 +20,23 @@ public class GameModel {
 
     }
 
-    public void playerClick(int buttonClicked, List<Integer> buttonsUsed) {
+    public void playerClick(int buttonClicked, List<String> buttonsUsed) {
         //This method is called from GameController when a button is clicked
-        buttonsUsed.set(buttonClicked-1, buttonClicked);
+        buttonsUsed.set(buttonClicked-1, "X");
         setTotalMoveCounter(getTotalMoveCounter() + 1);
         System.out.println(buttonsUsed);
 
     }
 
 
-    public int computerPlay(List<Integer> buttonsUsed, int buttonClicked) {
+    public int computerPlay(List<String> buttonsUsed, int buttonClicked) {
 
         buttonClicked = random.nextInt(1, 9);
-        while (buttonsUsed.get(buttonClicked-1) != 0) {
+        while (Objects.equals(buttonsUsed.get(buttonClicked), "X") || Objects.equals(buttonsUsed.get(buttonClicked), "O")) {
             buttonClicked = random.nextInt(1, 9);
         }
-            //Computer sets -1 in int arrayList to indicate that the button is used
-            buttonsUsed.set(buttonClicked-1, -1);
+            //Computer sets in String arrayList to indicate that the button is used
+            buttonsUsed.set(buttonClicked, "O");
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
         System.out.println(buttonsUsed);
