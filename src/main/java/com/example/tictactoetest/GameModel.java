@@ -35,23 +35,20 @@ public class GameModel {
     public int computerPlay(List<Integer> buttonsUsed, int buttonClicked) {
 
         buttonClicked = random.nextInt(1, 9);
-
-        int i = 0;
-
-
-
+        while (buttonsUsed.get(buttonClicked-1) != 0) {
+            buttonClicked = random.nextInt(1, 9);
+        }
+            //Computer sets -1 in int arrayList to indicate that the button is used
+            buttonsUsed.set(buttonClicked-1, -1);
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-            return buttonClicked;
+        System.out.println(buttonsUsed);
+        return buttonClicked;
 
     }
 
 
-    String isValidMove(List<String> buttonsIsDisabled, int randomButton){
 
-        return "";
-
-    }
 
     public boolean isGameOver(){
         return false;

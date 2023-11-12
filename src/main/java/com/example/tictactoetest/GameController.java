@@ -72,57 +72,77 @@ public class GameController {
         } else if (mouseEvent.getSource() == two) {
             two.setText("X");
             two.setDisable(true);
-            buttonClicked = 2;
+            buttonClicked = 1;
             gameModel.playerClick(buttonClicked, buttonsUsed);
         } else if (mouseEvent.getSource() == three) {
             three.setText("X");
             three.setDisable(true);
-            buttonClicked = 3;
+            buttonClicked = 1;
             gameModel.playerClick(buttonClicked, buttonsUsed);
         } else if (mouseEvent.getSource() == four) {
             four.setText("X");
             four.setDisable(true);
-            buttonClicked = 4;
+            buttonClicked = 1;
             gameModel.playerClick(buttonClicked, buttonsUsed);
         } else if (mouseEvent.getSource() == five) {
             five.setText("X");
             five.setDisable(true);
-            buttonClicked = 5;
+            buttonClicked = 1;
             gameModel.playerClick(buttonClicked, buttonsUsed);
         } else if (mouseEvent.getSource() == six) {
             six.setText("X");
             six.setDisable(true);
-            buttonClicked = 6;
+            buttonClicked = 1;
             gameModel.playerClick(buttonClicked, buttonsUsed);
         } else if (mouseEvent.getSource() == seven) {
             seven.setText("X");
             seven.setDisable(true);
-            buttonClicked = 7;
+            buttonClicked = 1;
             gameModel.playerClick(buttonClicked, buttonsUsed);
         } else if (mouseEvent.getSource() == eight) {
             eight.setText("X");
             eight.setDisable(true);
-            buttonClicked = 8;
+            buttonClicked = 1;
             gameModel.playerClick(buttonClicked, buttonsUsed);
 
         } else if (mouseEvent.getSource() == nine) {
             nine.setText("X");
             nine.setDisable(true);
-            buttonClicked = 9;
+            buttonClicked = 1;
             gameModel.playerClick(buttonClicked, buttonsUsed);
         }
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
 
+        //Computer plays
+        buttonClicked = gameModel.computerPlay(buttonsUsed, buttonClicked);
+        buttons.set(buttonClicked-1, buttons.get(buttonClicked));
+        buttons.get(buttonClicked-1).setText("O");
+        buttons.get(buttonClicked-1).setDisable(true);
+
+        moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
     }
 
 
-    public void resetGameOnClick(MouseEvent mouseEvent) {
 
+
+
+    public void resetGameOnClick(MouseEvent mouseEvent) {
+            //Reset game
+            buttons.forEach(button -> button.setText(""));
+            buttons.forEach(button -> button.setDisable(false));
+            gameModel.setTotalMoveCounter(0);
+            moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
+            buttonsUsed = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            winner.setText("");
     }
 
 
     public void newGameOnClick(MouseEvent mouseEvent) {
-
+        buttons.forEach(button -> button.setText(""));
+        buttons.forEach(button -> button.setDisable(false));
+        moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
+        buttonsUsed = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0);
+        winner.setText("");
     }
 }
