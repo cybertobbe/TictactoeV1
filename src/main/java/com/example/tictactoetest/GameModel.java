@@ -28,20 +28,21 @@ public class GameModel {
         buttonsUsed.set(buttonClicked-1, buttonClicked);
         setTotalMoveCounter(getTotalMoveCounter() + 1);
         System.out.println(buttonsUsed);
+
     }
 
 
-    public void computerPlay(List<Integer> buttonsUsed) {
+    public int computerPlay(List<Integer> buttonsUsed, int buttonClicked) {
 
-        int randomButton = 0;
+        buttonClicked = random.nextInt(1, 9);
+
         int i = 0;
 
 
-        randomButton = random.nextInt(1, 9);
 
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-
+            return buttonClicked;
 
     }
 

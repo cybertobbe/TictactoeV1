@@ -14,6 +14,7 @@ import java.util.List;
 
 public class GameController {
 
+    private final GameModel gameModel = new GameModel();
     //FXML connections
     public Button one;
     public Button two;
@@ -32,8 +33,6 @@ public class GameController {
     public Label winner;
     public List<Button> buttons = new ArrayList<>();
     public List<Integer> buttonsUsed = new ArrayList<>();
-
-    private final GameModel gameModel = new GameModel();
 
 
 
@@ -57,161 +56,73 @@ public class GameController {
         computerPoints.setText("Computer points " + gameModel.getComputerPoints());
 
         buttonsUsed = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0);
+
     }
 
 
     //PLayer plays
     public void clicked(MouseEvent mouseEvent) {
+
         int buttonClicked = 0;
+        if (mouseEvent.getSource() == one) {
+            one.setText("X");
+            one.setDisable(true);
+            buttonClicked = 1;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
+        } else if (mouseEvent.getSource() == two) {
+            two.setText("X");
+            two.setDisable(true);
+            buttonClicked = 2;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
+        } else if (mouseEvent.getSource() == three) {
+            three.setText("X");
+            three.setDisable(true);
+            buttonClicked = 3;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
+        } else if (mouseEvent.getSource() == four) {
+            four.setText("X");
+            four.setDisable(true);
+            buttonClicked = 4;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
+        } else if (mouseEvent.getSource() == five) {
+            five.setText("X");
+            five.setDisable(true);
+            buttonClicked = 5;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
+        } else if (mouseEvent.getSource() == six) {
+            six.setText("X");
+            six.setDisable(true);
+            buttonClicked = 6;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
+        } else if (mouseEvent.getSource() == seven) {
+            seven.setText("X");
+            seven.setDisable(true);
+            buttonClicked = 7;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
+        } else if (mouseEvent.getSource() == eight) {
+            eight.setText("X");
+            eight.setDisable(true);
+            buttonClicked = 8;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
 
-                if (mouseEvent.getSource() == one) {
-                    one.setText("X");
-                    one.setDisable(true);
-                    buttonClicked = 1;
-                    gameModel.playerClick(buttonClicked, buttonsUsed);
-                } else if (mouseEvent.getSource() == two) {
-                    two.setText("X");
-                    two.setDisable(true);
-                    buttonClicked = 2;
-                    gameModel.playerClick(buttonClicked, buttonsUsed);
-                } else if (mouseEvent.getSource() == three) {
-                    three.setText("X");
-                    three.setDisable(true);
-                    buttonClicked = 3;
-                    gameModel.playerClick(buttonClicked, buttonsUsed);
-                } else if (mouseEvent.getSource() == four) {
-                    four.setText("X");
-                    four.setDisable(true);
-                    buttonClicked = 4;
-                    gameModel.playerClick(buttonClicked, buttonsUsed);
-                } else if (mouseEvent.getSource() == five) {
-                    five.setText("X");
-                    five.setDisable(true);
-                    buttonClicked = 5;
-                    gameModel.playerClick(buttonClicked, buttonsUsed);
-                } else if (mouseEvent.getSource() == six) {
-                    six.setText("X");
-                    six.setDisable(true);
-                    buttonClicked = 6;
-                    gameModel.playerClick(buttonClicked, buttonsUsed);
-                } else if (mouseEvent.getSource() == seven) {
-                    seven.setText("X");
-                    seven.setDisable(true);
-                    buttonClicked = 7;
-                    gameModel.playerClick(buttonClicked, buttonsUsed);
-                } else if (mouseEvent.getSource() == eight) {
-                    eight.setText("X");
-                    eight.setDisable(true);
-                    buttonClicked = 8;
-                    gameModel.playerClick(buttonClicked, buttonsUsed);
-
-                } else if (mouseEvent.getSource() == nine) {
-                    nine.setText("X");
-                    nine.setDisable(true);
-                    buttonClicked = 9;
-                    gameModel.playerClick(buttonClicked,buttonsUsed);
-                }
-                moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-
-
-
-
-
-        //check if there is a winner after players move
-                if(gameModel.isGameOver()) {
-                    buttons.forEach(button -> button.setDisable(true));
-                    updatePoints();
-                    showWinner();
-                    return;
-                }
-
-
-
-
-        //Computer plays
-                gameModel.computerPlay(buttonsUsed);
-
-                moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-
-
-        //check if there is a winner after computers move
-                if(gameModel.isGameOver()) {
-                    buttons.forEach(button -> button.setDisable(true));
-                    if(gameModel.winningLine.contentEquals("XXX")){
-                            updatePoints();
-                            showWinner();
-                    }
-                    else if(gameModel.winningLine.contentEquals("OOO")){
-                            updatePoints();
-                            showWinner();
-                    }
-
-                    return;
-                }
-
-
-        //check if there is a draw
-                    else if(gameModel.getTotalMoveCounter() > 8){
-                        buttons.forEach(button -> button.setDisable(true));
-                        showWinner();
-                        return;
-                    }
-
-        //Print number of moves
-                moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-
-
-    }
-
-    private void showWinner() {
-
-        if(gameModel.winningLine.contentEquals("XXX")){
-            winner.setText("Player wins in " + gameModel.getTotalMoveCounter() + " moves!");
+        } else if (mouseEvent.getSource() == nine) {
+            nine.setText("X");
+            nine.setDisable(true);
+            buttonClicked = 9;
+            gameModel.playerClick(buttonClicked, buttonsUsed);
         }
-        else if(gameModel.winningLine.contentEquals("OOO")){
-            winner.setText("Computer wins in " + gameModel.getTotalMoveCounter() + " moves!");
-        }
-        else if(gameModel.getTotalMoveCounter() == 9){
-            winner.setText("Draw!");
-        }
-    }
-
-
-    private void updatePoints() {
-        playerPoints.setText("Player points " + gameModel.getPlayerPoints());
-        computerPoints.setText("Computer points " + gameModel.getComputerPoints());
-    }
-
-
-    //Reset game board and points
-    public void resetGameOnClick(MouseEvent mouseEvent) throws IOException {
-        //Game plan sets back to defaults
-        buttons.forEach(button -> {
-            button.setText("");
-            button.setDisable(false);
-        });
-        gameModel.setTotalMoveCounter(0);
-        gameModel.setPlayerPoints(0);
-        gameModel.setComputerPoints(0);
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-        playerPoints.setText("Player points " + gameModel.getPlayerPoints());
-        computerPoints.setText("Computer points " + gameModel.getComputerPoints());
-        winner.setText("");
-
-
 
 
     }
-    //Reset game board  for new game but keep points
+
+
+    public void resetGameOnClick(MouseEvent mouseEvent) {
+
+    }
+
+
     public void newGameOnClick(MouseEvent mouseEvent) {
-        buttons.forEach(button -> {
-            button.setText("");
-            button.setDisable(false);
-        });
-        gameModel.setTotalMoveCounter(0);
-        moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-        winner.setText("");
-
 
     }
 }
