@@ -25,16 +25,16 @@ public class GameModel {
 
     }
 
-    public void playerClick(int buttonClicked, List<Integer> buttonsClickedAsInt) {
+    public void playerClick(String buttonClicked, List<String> buttonsClickedAsString) {
         //This method is called from GameController when a button is clicked
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-        buttonsClickedAsInt.add(buttonClicked);
-        System.out.println(buttonsClickedAsInt);
+        buttonsClickedAsString.add((buttonClicked, buttonClicked));
+        System.out.println(buttonsClickedAsString);
     }
 
 
-    public void computerPlay(List<Integer> buttonsClickedAsInt) {
+    /*public void computerPlay() {
 
         //continue here. Make a list of buttons clicked and check if the random number is in the list. If it is, generate a new random number.
         int computerClickButton = random.nextInt(1,9);
@@ -45,11 +45,11 @@ public class GameModel {
 
         }
 
-        buttonsClickedAsInt.add(computerClickButton);
+        buttonsClickedAsInt.add(computerClickButton-1, computerClickButton);
         setTotalMoveCounter(getTotalMoveCounter() + 1);
 
 
-    }
+    }*/
 
 
     public boolean isButtonClicked(int computerClickButton, List<Integer> buttonsClickedAsInt) {
