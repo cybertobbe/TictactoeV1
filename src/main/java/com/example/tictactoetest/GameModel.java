@@ -31,11 +31,8 @@ public class GameModel {
 
     public int computerPlay(List<String> buttonsUsed, int buttonClicked) {
 
-        buttonClicked = random.nextInt(1, 9);
-        while (Objects.equals(buttonsUsed.get(buttonClicked), "X") || Objects.equals(buttonsUsed.get(buttonClicked), "O")) {
-            buttonClicked = random.nextInt(1, 9);
-        }
-            //Computer sets in String arrayList to indicate that the button is used
+        buttonClicked = validMove(buttonsUsed);
+        //Computer sets in String arrayList to indicate that the button is used
             buttonsUsed.set(buttonClicked, "O");
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
@@ -43,8 +40,15 @@ public class GameModel {
         return buttonClicked;
 
     }
-
-
+    //Extracted method from computerPlay to check if the button is used
+    int validMove(List<String> buttonsUsed) {
+        int buttonClicked;
+        buttonClicked = random.nextInt(1, 9);
+        while (Objects.equals(buttonsUsed.get(buttonClicked), "X") || Objects.equals(buttonsUsed.get(buttonClicked), "O")) {
+            buttonClicked = random.nextInt(1, 9);
+        }
+        return buttonClicked;
+    }
 
 
     public boolean isGameOver(){

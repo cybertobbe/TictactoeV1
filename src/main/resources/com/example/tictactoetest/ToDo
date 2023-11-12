@@ -1,5 +1,9 @@
 ToDo
 
+Extract method validMove
+
+
+
 CheckWinner
     name changed to isGameOver
 -------------------------------------------------------------------------------------------------

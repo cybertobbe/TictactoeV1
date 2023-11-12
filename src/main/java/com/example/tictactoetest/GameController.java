@@ -143,7 +143,7 @@ public class GameController {
         buttons.forEach(button -> button.setDisable(false));
         gameModel.setTotalMoveCounter(0);
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-        buttonsUsed.forEach(button -> button = "");
+        buttonsUsed = Arrays.asList("", "", "", "", "", "", "", "", "");
         winner.setText("");
     }
 }
