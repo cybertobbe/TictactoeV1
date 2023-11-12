@@ -1,22 +1,15 @@
+ToDo
 
-OK
-CheckWinner - ok
+CheckWinner
     name changed to isGameOver
 -------------------------------------------------------------------------------------------------
 
-
-OK
-Labels to initilize() - ok
--------------------------------------------------------------------------------------------------
-OK
-What symbol won, X or O? - ok
+What symbol won, X or O?
     A private global String variable that is set with X or O when a winner is found
 
--------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------
 
-OK
 Count up winners points +1 and update label
 -------------------------------------------------------------------------------------------------
 
@@ -25,8 +18,8 @@ New game button. - ok
     Start a new game without resetting the score.
 
 -------------------------------------------------------------------------------------------------
-Label to display who won -ok
-Print TicTacToe and who won -ok
+Label to display who won
+Print TicTacToe and who won
 
 -------------------------------------------------------------------------------------------------
 
