@@ -63,7 +63,7 @@ public class GameController {
     //PLayer plays
     public void clicked(MouseEvent mouseEvent) {
 
-        int buttonClicked = -1;
+        int buttonClicked = 0;
         if (mouseEvent.getSource() == one) {
             one.setText("X");
             one.setDisable(true);
@@ -116,9 +116,9 @@ public class GameController {
 
         //Computer plays
         buttonClicked = gameModel.computerPlay(buttonsUsed, buttonClicked);
-        buttons.set(buttonClicked-1, buttons.get(buttonClicked));
-        buttons.get(buttonClicked-1).setText("O");
-        buttons.get(buttonClicked-1).setDisable(true);
+        buttons.set(buttonClicked, buttons.get(buttonClicked));
+        buttons.get(buttonClicked).setText("O");
+        buttons.get(buttonClicked).setDisable(true);
 
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
     }
@@ -133,7 +133,7 @@ public class GameController {
             buttons.forEach(button -> button.setDisable(false));
             gameModel.setTotalMoveCounter(0);
             moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-            buttonsUsed = Arrays.asList("", "", "", "", "", "", "", "","");
+            buttonsUsed = Arrays.asList("", "", "", "", "", "", "", "", "");
             winner.setText("");
     }
 
@@ -141,8 +141,9 @@ public class GameController {
     public void newGameOnClick(MouseEvent mouseEvent) {
         buttons.forEach(button -> button.setText(""));
         buttons.forEach(button -> button.setDisable(false));
+        gameModel.setTotalMoveCounter(0);
         moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-        buttonsUsed = Arrays.asList("", "", "", "", "", "", "", "","");
+        buttonsUsed.forEach(button -> button = "");
         winner.setText("");
     }
 }
