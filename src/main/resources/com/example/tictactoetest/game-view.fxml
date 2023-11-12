@@ -30,39 +30,29 @@
 
             </HBox>
             <HBox alignment="CENTER" spacing="1">
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked" >
-                    <Image url="@../../../default.png" fx:id="one" />
-                </ImageView>
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
-                    <Image url="@../../../default.png" fx:id="two"/>
-                </ImageView>
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
-                    <Image url="@../../../default.png" fx:id="three"/>
-                </ImageView>
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
+
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
+
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
+
             </HBox>
 
             <HBox alignment="CENTER" spacing="1">
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
-                    <Image url="@../../../default.png" fx:id="four"/>
-                </ImageView>
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
-                    <Image url="@../../../default.png" fx:id="five"/>
-                </ImageView>
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
-                    <Image url="@../../../default.png" fx:id="six"/>
-                </ImageView>
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
+
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
+
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
             </HBox>
 
             <HBox alignment="CENTER" spacing="1">
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
-                    <Image url="@../../../default.png" fx:id="seven"/>
-                </ImageView>
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
-                    <Image url="@../../../default.png" fx:id="eight"/>
-                </ImageView>
-                <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked">
-                    <Image url="@../../../default.png" fx:id="nine"/>
-                </ImageView>
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
+
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
+
+                <ImageView image="${controller.gameModel.d}" fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true" onMouseClicked="#clicked"/>
+
             </HBox>
 
         </VBox>

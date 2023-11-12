@@ -23,16 +23,14 @@ public class GameController {
       public Label computerPoints;
       public Button resetGame;
       public Button newGame;
-      public Image one;
-      public Image two;
-      public Image three;
-      public Image four;
-      public Image five;
-      public Image six;
-      public Image seven;
-      public Image eight;
-      public Image nine;
+      public Label winner;
 
+
+      private GameModel gameModel = new GameModel();
+
+      public GameModel getGameModel() {
+            return gameModel;
+      }
 
       public void initialize(){
 
@@ -40,10 +38,9 @@ public class GameController {
 
 
       public void clicked(MouseEvent mouseEvent){
-            if(mouseEvent.getSource() == one){
-                  ImageView imageView = (ImageView) mouseEvent.getSource();
 
 
             }
       }
-}
+
+
