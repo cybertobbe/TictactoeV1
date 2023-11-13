@@ -11,7 +11,27 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameModelTest {
+public class GameModelTest {
+      @Test
 
+      void TestIfComputerFindsAValidButtonToPlay(){
+            //Arrange
+            int button = 1;
+            //Act
+
+
+            //Assert
+      }
+
+
+
+
+
+
+      //Arrange
+
+      //Act
+
+      //Assert
 
 }
