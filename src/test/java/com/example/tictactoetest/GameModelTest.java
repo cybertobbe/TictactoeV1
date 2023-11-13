@@ -12,15 +12,15 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameModelTest {
-      @Test
+      GameModel gameModel = new GameModel();
 
+
+      @Test
       void TestIfComputerFindsAValidButtonToPlay(){
             //Arrange
-            int button = 1;
             //Act
-
-
             //Assert
+
       }
 
 
