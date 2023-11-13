@@ -24,7 +24,6 @@ public class GameModel {
         //This method is called from GameController when a button is clicked
         buttonsUsed.set(buttonClicked-1, "X");
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-        System.out.println(buttonsUsed);
 
     }
 
@@ -36,7 +35,7 @@ public class GameModel {
             buttonsUsed.set(buttonClicked, "O");
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
-        System.out.println(buttonsUsed);
+
 
         return buttonClicked;
 
@@ -112,7 +111,6 @@ public class GameModel {
     }
 
     public String getWinningLine() {
-        System.out.println(winningLine);
         return winningLine;
     }
 }
