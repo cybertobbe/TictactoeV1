@@ -112,13 +112,14 @@ public class GameController {
                 gameModel.playerClick(buttonClicked, buttonsUsed);
           }
           moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-
-          if (gameModel.isGameOver(buttonsUsed)) {
+              //Check winner after player plays
+          if(gameModel.isGameOver(buttonsUsed)) {
                 buttons.forEach(button -> button.setDisable(true));
                 updatePoints();
                 showWinner();
                 return;
           }
+
 
 
           //Computer plays
@@ -130,23 +131,21 @@ public class GameController {
           moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
 
           //Check winner after computer plays
-          if (gameModel.isGameOver(buttonsUsed)) {
-                buttons.forEach(buttons -> buttons.setDisable(true));
-            if(gameModel.getWinningLine().equals("XXX")){
-                updatePoints();
-                showWinner();
-            }
-            else if(gameModel.getWinningLine().equals("OOO")){
-                updatePoints();
-                showWinner();
-            }
-            else if(gameModel.getWinningLine().equals("Draw")){
-                winner.setText("Draw!");
-            }
-                updatePoints();
-                return;
+          if(gameModel.isGameOver(buttonsUsed)) {
+                buttons.forEach(button -> button.setDisable(true));
+                if(gameModel.getWinningLine().contentEquals("XXX")){
+                      updatePoints();
+                      showWinner();
+                }
+                else if(gameModel.getWinningLine().contentEquals("OOO")){
+                      updatePoints();
+                      showWinner();
+
+                }
+
 
           }
+
     }
 
 
@@ -184,7 +183,7 @@ public class GameController {
     }
 
     public void showWinner(){
-        if(gameModel.isGameOver(buttonsUsed)){
+
             if(gameModel.getWinningLine().equals("XXX")){
                 winner.setText("Player wins in " + gameModel.getTotalMoveCounter() + " moves!");
             }
@@ -195,5 +194,5 @@ public class GameController {
                 winner.setText("Draw!");
             }
         }
-    }
+
 }

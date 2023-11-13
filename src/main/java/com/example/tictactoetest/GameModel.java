@@ -37,13 +37,14 @@ public class GameModel {
 
         setTotalMoveCounter(getTotalMoveCounter() + 1);
         System.out.println(buttonsUsed);
+
         return buttonClicked;
 
     }
     //Extracted method from computerPlay to check if the button is used
     public int validMove(List<String> buttonsUsed) {
-        int buttonClicked;
-        buttonClicked = random.nextInt(1, 9);
+
+        int buttonClicked = random.nextInt(1, 9);
         while (Objects.equals(buttonsUsed.get(buttonClicked), "X") || Objects.equals(buttonsUsed.get(buttonClicked), "O")) {
             buttonClicked = random.nextInt(1, 9);
         }
