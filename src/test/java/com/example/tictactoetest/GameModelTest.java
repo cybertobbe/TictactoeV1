@@ -12,26 +12,23 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameModelTest {
-      GameModel gameModel = new GameModel();
+     private GameModel model;
 
 
       @Test
+      @DisplayName("Test If Computer Finds A Valid Button To Play")
       void TestIfComputerFindsAValidButtonToPlay(){
-            //Arrange
-            //Act
-            //Assert
+
+          //Arrange
+            model = new GameModel();
+            List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "O", "X", "O", "X");
+            int buttonClicked = 0;
+
+            buttonClicked = model.validMove(buttonsUsed);
+
+            assertTrue(buttonClicked >= 1 && buttonClicked <= 3);
 
       }
 
-
-
-
-
-
-      //Arrange
-
-      //Act
-
-      //Assert
 
 }

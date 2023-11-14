@@ -149,10 +149,6 @@ public class GameController {
     }
 
 
-
-
-
-
     public void resetGameOnClick(MouseEvent mouseEvent) {
             //Reset game
             buttons.forEach(button -> button.setText(""));
