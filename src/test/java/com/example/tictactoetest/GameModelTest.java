@@ -26,7 +26,6 @@ public class GameModelTest {
             buttonClicked = model.validMove(buttonsUsed);
 
             assertTrue(buttonClicked >= 1 && buttonClicked <= 3);
-
       }
 
 
