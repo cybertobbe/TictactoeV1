@@ -31,4 +31,24 @@ public class GameModelTest {
       }
 
 
+    @Test
+    public void testIsGameOver_PlayerWins() {
+        // Arrange
+         model = new GameModel();
+        List<String> buttonsUsed = Arrays.asList("X", "X", "X", "O", "O", "", "", "", "");
+
+        // Act
+        boolean result = model.isGameOver(buttonsUsed);
+
+        // Assert
+        assertTrue(result);
+        assertEquals("XXX", model.getWinningLine());
+        assertEquals(1, model.getPlayerPoints());
+        assertEquals(0, model.getComputerPoints());
+    }
+
+
+
+
+
 }
