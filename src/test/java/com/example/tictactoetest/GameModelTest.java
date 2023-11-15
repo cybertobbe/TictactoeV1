@@ -4,7 +4,6 @@ package com.example.tictactoetest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,9 +31,11 @@ public class GameModelTest {
 
 
     @Test
-    public void testIsGameOver_PlayerWins() {
+    @DisplayName("Test if game over when player wins")
+    public void testIfGameOverWhenPlayerWins() {
         // Arrange
-         model = new GameModel();
+
+          model = new GameModel();
         List<String> buttonsUsed = Arrays.asList("X", "X", "X", "O", "O", "", "", "", "");
 
         // Act
@@ -46,6 +47,47 @@ public class GameModelTest {
         assertEquals(1, model.getPlayerPoints());
         assertEquals(0, model.getComputerPoints());
     }
+
+      @Test
+      @DisplayName("Test row win")
+      public void testRowWin() {
+            // Arrange
+            model = new GameModel();
+            //Test middle row win
+            List<String> buttonsUsed = Arrays.asList("", "", "", "X", "X", "X", "", "", "");
+
+
+            // Act and Assert
+            assertTrue(model.isGameOver(buttonsUsed));
+      }
+
+      @Test
+      @DisplayName("Test column win")
+      public void testColumnWin() {
+
+            model = new GameModel();
+            // Test left side column win
+            List<String> buttonsUsed = Arrays.asList("X", "", "", "X", "", "", "X", "", "");
+
+
+
+            assertTrue(model.isGameOver(buttonsUsed));
+      }
+
+      @Test
+      @DisplayName("Test column win")
+      public void testDiagonalWin() {
+
+            model = new GameModel();
+            // Test left side column win
+            List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "", "", "", "X");
+
+
+
+            assertTrue(model.isGameOver(buttonsUsed));
+      }
+
+
 
 
 
