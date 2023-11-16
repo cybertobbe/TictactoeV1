@@ -1,20 +1,19 @@
 package com.example.tictactoetest;
 
 //New Branch
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameModelTest {
      private GameModel model;
-
-
 
 
     @Test
@@ -25,11 +24,9 @@ public class GameModelTest {
           model = new GameModel();
         List<String> buttonsUsed = Arrays.asList("X", "X", "X", "O", "O", "", "", "", "");
 
-        // Act
         boolean gameOver = model.isGameOver(buttonsUsed);
 
-        // Assert
-        assertTrue(gameOver);
+        assertThat(gameOver).isTrue();
         assertEquals("XXX", model.getWinningLine());
         assertEquals(1, model.getPlayerPoints());
         assertEquals(0, model.getComputerPoints());
@@ -47,7 +44,7 @@ public class GameModelTest {
             boolean gameOver = model.isGameOver(buttonsUsed);
 
             // Assert
-            assertTrue(gameOver);
+            assertThat(gameOver).isTrue();
             assertEquals("OOO", model.getWinningLine());
             assertEquals(0, model.getPlayerPoints());
             assertEquals(1, model.getComputerPoints());
@@ -59,11 +56,11 @@ public class GameModelTest {
             // Arrange
             model = new GameModel();
             //Test middle row  O win
-            List<String> buttonsUsed = Arrays.asList("X", "O", "X", "O", "O", "O", "X", "O", "X");
+            List<String> buttonsUsed = Arrays.asList("", "", "", "O", "O", "O", "", "", "");
 
 
-            // Act and Assert
-            assertTrue(model.isGameOver(buttonsUsed));
+            assertThat(model.isGameOver(buttonsUsed)).isTrue();
+
 
       }
 
@@ -75,9 +72,8 @@ public class GameModelTest {
             // Test left side column X win
             List<String> buttonsUsed = Arrays.asList("X", "", "", "X", "", "", "X", "", "");
 
+            assertThat(model.isGameOver(buttonsUsed)).isTrue();
 
-
-            assertTrue(model.isGameOver(buttonsUsed));
       }
 
       @Test
@@ -88,8 +84,8 @@ public class GameModelTest {
             // Test X diagonal win
             List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "", "", "", "X");
 
+            assertThat(model.isGameOver(buttonsUsed)).isTrue();
 
-            assertTrue(model.isGameOver(buttonsUsed));
       }
 
       @Test
@@ -102,8 +98,8 @@ public class GameModelTest {
             int buttonClicked = 0;
 
             buttonClicked = model.validMove(buttonsUsed, new fixedRandom());
-
-            assertTrue(buttonClicked >= 1 && buttonClicked <= 3);
+            assertThat(buttonClicked).isBetween(1, 3);
+            //assertTrue(buttonClicked >= 1 && buttonClicked >= 3);
 
       }
 
@@ -111,18 +107,11 @@ public class GameModelTest {
 
 }
 
-class fixedRandom extends Random{
-      @Override
-      public int nextInt(int bound) {
-            return 0;
-      }
-
-
-}
 
 
 
-     /* @Test
+
+     /*@Test
       @DisplayName("Test If Computer Finds A Valid Button To Play")
       void TestIfComputerFindsAValidButtonToPlay(){
 
