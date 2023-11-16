@@ -52,9 +52,10 @@ public class GameModel {
     //Extracted method from computerPlay to check if the button is used
     public int validMove(List<String> buttonsUsed, Random random) {
 
-        int buttonClicked = random.nextInt(1, 9);
-        while (Objects.equals(buttonsUsed.get(buttonClicked), "X") || Objects.equals(buttonsUsed.get(buttonClicked), "O")) {
-            buttonClicked = random.nextInt(1, 9);
+        int buttonClicked = random.nextInt(0, 8);
+
+        while (buttonsUsed.get(buttonClicked).equals("X") || buttonsUsed.get(buttonClicked).equals("O")) {
+            buttonClicked = random.nextInt(0, 8);
         }
         return buttonClicked;
     }
@@ -90,7 +91,6 @@ public class GameModel {
             return false;
         }
     }
-
 
 
     public int getTotalMoveCounter() {

@@ -104,23 +104,22 @@ public class GameController {
                 eight.setDisable(true);
                 buttonClicked = 8;
                 gameModel.playerClick(buttonClicked, buttonsUsed);
-
           } else if (mouseEvent.getSource() == nine) {
                 nine.setText("X");
                 nine.setDisable(true);
                 buttonClicked = 9;
                 gameModel.playerClick(buttonClicked, buttonsUsed);
           }
+
           moveCounter.setText("Moves: " + gameModel.getTotalMoveCounter());
-              //Check winner after player plays
+
+          //Check winner after player plays
           if(gameModel.isGameOver(buttonsUsed)) {
                 buttons.forEach(button -> button.setDisable(true));
                 updatePoints();
                 showWinner();
                 return;
           }
-
-
 
           //Computer plays
           buttonClicked = gameModel.computerPlay(buttonsUsed, buttonClicked);
@@ -148,7 +147,6 @@ public class GameController {
 
     }
 
-
     public void resetGameOnClick(MouseEvent mouseEvent) {
             //Reset game
             buttons.forEach(button -> button.setText(""));
@@ -162,7 +160,6 @@ public class GameController {
             buttonsUsed = Arrays.asList("", "", "", "", "", "", "", "", "");
             winner.setText("");
     }
-
 
     public void newGameOnClick(MouseEvent mouseEvent) {
         buttons.forEach(button -> button.setText(""));
@@ -179,7 +176,6 @@ public class GameController {
     }
 
     public void showWinner(){
-
           switch (gameModel.getWinningLine()) {
                 case "XXX" -> winner.setText("Player wins in " + gameModel.getTotalMoveCounter() + " moves!");
                 case "OOO" -> winner.setText("Computer wins in " + gameModel.getTotalMoveCounter() + " moves!");
