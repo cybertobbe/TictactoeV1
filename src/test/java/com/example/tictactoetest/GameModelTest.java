@@ -1,7 +1,5 @@
 package com.example.tictactoetest;
 
-//New Branch
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -90,20 +88,18 @@ public class GameModelTest {
 
       @Test
       @DisplayName("Test If Computer Finds A Valid Button To Play")
-      void TestIfComputerFindsAValidButtonToPlay2(){
+      void TestIfComputerFindsAValidButtonToPlay(){
 
-          //Arrange
+
             model = new GameModel();
             List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "O", "X", "O", "X");
             int buttonClicked = 0;
 
             buttonClicked = model.validMove(buttonsUsed, new fixedRandom());
             assertThat(buttonClicked).isBetween(1, 3);
-            //assertTrue(buttonClicked >= 1 && buttonClicked >= 3);
+
 
       }
-
-
 
 }
 
@@ -111,16 +107,3 @@ public class GameModelTest {
 
 
 
-     /*@Test
-      @DisplayName("Test If Computer Finds A Valid Button To Play")
-      void TestIfComputerFindsAValidButtonToPlay(){
-
-          //Arrange
-            model = new GameModel();
-            List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "O", "X", "O", "X");
-            int buttonClicked = 0;
-
-            buttonClicked = model.validMove(buttonsUsed);
-
-            assertTrue(buttonClicked >= 1 && buttonClicked <= 3);
-      }*/
