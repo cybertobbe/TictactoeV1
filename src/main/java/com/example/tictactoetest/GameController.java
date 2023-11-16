@@ -180,15 +180,11 @@ public class GameController {
 
     public void showWinner(){
 
-            if(gameModel.getWinningLine().equals("XXX")){
-                winner.setText("Player wins in " + gameModel.getTotalMoveCounter() + " moves!");
-            }
-            else if(gameModel.getWinningLine().equals("OOO")){
-                winner.setText("Computer wins in " + gameModel.getTotalMoveCounter() + " moves!");
-            }
-            else if(gameModel.getWinningLine().equals("Draw")){
-                winner.setText("Draw!");
-            }
+          switch (gameModel.getWinningLine()) {
+                case "XXX" -> winner.setText("Player wins in " + gameModel.getTotalMoveCounter() + " moves!");
+                case "OOO" -> winner.setText("Computer wins in " + gameModel.getTotalMoveCounter() + " moves!");
+                case "Draw" -> winner.setText("Draw!");
+          }
         }
 
 }
