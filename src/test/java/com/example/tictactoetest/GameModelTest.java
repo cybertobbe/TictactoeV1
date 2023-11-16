@@ -38,10 +38,10 @@ public class GameModelTest {
         List<String> buttonsUsed = Arrays.asList("X", "X", "X", "O", "O", "", "", "", "");
 
         // Act
-        boolean result = model.isGameOver(buttonsUsed);
+        boolean gameOver = model.isGameOver(buttonsUsed);
 
         // Assert
-        assertTrue(result);
+        assertTrue(gameOver);
         assertEquals("XXX", model.getWinningLine());
         assertEquals(1, model.getPlayerPoints());
         assertEquals(0, model.getComputerPoints());
