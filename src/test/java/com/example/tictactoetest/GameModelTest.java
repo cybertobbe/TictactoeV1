@@ -104,6 +104,7 @@ public class GameModelTest {
             buttonClicked = model.validMove(buttonsUsed, new fixedRandom());
 
             assertTrue(buttonClicked >= 1 && buttonClicked <= 3);
+
       }
 
 
@@ -113,7 +114,7 @@ public class GameModelTest {
 class fixedRandom extends Random{
       @Override
       public int nextInt(int bound) {
-            return 2;
+            return 0;
       }
 
 
