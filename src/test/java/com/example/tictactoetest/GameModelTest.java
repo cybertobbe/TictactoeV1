@@ -70,8 +70,8 @@ public class GameModelTest {
       public void testRowWin() {
             // Arrange
             model = new GameModel();
-            //Test middle row win
-            List<String> buttonsUsed = Arrays.asList("", "", "", "X", "X", "X", "", "", "");
+            //Test middle row  O win
+            List<String> buttonsUsed = Arrays.asList("X", "O", "X", "O", "O", "O", "X", "O", "X");
 
 
             // Act and Assert
@@ -83,7 +83,7 @@ public class GameModelTest {
       public void testColumnWin() {
 
             model = new GameModel();
-            // Test left side column win
+            // Test left side column X win
             List<String> buttonsUsed = Arrays.asList("X", "", "", "X", "", "", "X", "", "");
 
 
@@ -92,13 +92,12 @@ public class GameModelTest {
       }
 
       @Test
-      @DisplayName("Test column win")
+      @DisplayName("Test diagonal win")
       public void testDiagonalWin() {
 
             model = new GameModel();
-            // Test left side column win
+            // Test X diagonal win
             List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "", "", "", "X");
-
 
 
             assertTrue(model.isGameOver(buttonsUsed));
