@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,19 +15,6 @@ public class GameModelTest {
      private GameModel model;
 
 
-      @Test
-      @DisplayName("Test If Computer Finds A Valid Button To Play")
-      void TestIfComputerFindsAValidButtonToPlay(){
-
-          //Arrange
-            model = new GameModel();
-            List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "O", "X", "O", "X");
-            int buttonClicked = 0;
-
-            buttonClicked = model.validMove(buttonsUsed);
-
-            assertTrue(buttonClicked >= 1 && buttonClicked <= 3);
-      }
 
 
     @Test
@@ -104,4 +92,45 @@ public class GameModelTest {
             assertTrue(model.isGameOver(buttonsUsed));
       }
 
+      @Test
+      @DisplayName("Test If Computer Finds A Valid Button To Play")
+      void TestIfComputerFindsAValidButtonToPlay2(){
+
+          //Arrange
+            model = new GameModel();
+            List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "O", "X", "O", "X");
+            int buttonClicked = 0;
+
+            buttonClicked = model.validMove(buttonsUsed, new fixedRandom());
+
+            assertTrue(buttonClicked >= 1 && buttonClicked <= 3);
+      }
+
+
+
 }
+
+class fixedRandom extends Random{
+      @Override
+      public int nextInt(int bound) {
+            return 2;
+      }
+
+
+}
+
+
+
+     /* @Test
+      @DisplayName("Test If Computer Finds A Valid Button To Play")
+      void TestIfComputerFindsAValidButtonToPlay(){
+
+          //Arrange
+            model = new GameModel();
+            List<String> buttonsUsed = Arrays.asList("X", "", "", "", "X", "O", "X", "O", "X");
+            int buttonClicked = 0;
+
+            buttonClicked = model.validMove(buttonsUsed);
+
+            assertTrue(buttonClicked >= 1 && buttonClicked <= 3);
+      }*/

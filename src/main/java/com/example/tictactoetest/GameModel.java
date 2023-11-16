@@ -20,6 +20,15 @@ public class GameModel {
 
     }
 
+    //Constructor for testing
+    public GameModel(Random random) {
+        this.random = random;
+
+    }
+
+
+
+
     public void playerClick(int buttonClicked, List<String> buttonsUsed) {
         //This method is called from GameController when a button is clicked
         buttonsUsed.set(buttonClicked-1, "X");
@@ -30,7 +39,7 @@ public class GameModel {
 
     public int computerPlay(List<String> buttonsUsed, int buttonClicked) {
 
-        buttonClicked = validMove(buttonsUsed);
+        buttonClicked = validMove(buttonsUsed, random);
         //Computer sets in String arrayList to indicate that the button is used
             buttonsUsed.set(buttonClicked, "O");
 
@@ -41,7 +50,7 @@ public class GameModel {
 
     }
     //Extracted method from computerPlay to check if the button is used
-    public int validMove(List<String> buttonsUsed) {
+    public int validMove(List<String> buttonsUsed, Random random) {
 
         int buttonClicked = random.nextInt(1, 9);
         while (Objects.equals(buttonsUsed.get(buttonClicked), "X") || Objects.equals(buttonsUsed.get(buttonClicked), "O")) {
