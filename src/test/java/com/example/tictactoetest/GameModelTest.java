@@ -48,6 +48,24 @@ public class GameModelTest {
     }
 
       @Test
+      @DisplayName("Test if game over when computer wins")
+      public void testIfGameOverWhenComputerWins() {
+            // Arrange
+
+            model = new GameModel();
+            List<String> buttonsUsed = Arrays.asList("O", "O", "O", "X", "X", "", "", "", "");
+
+            // Act
+            boolean gameOver = model.isGameOver(buttonsUsed);
+
+            // Assert
+            assertTrue(gameOver);
+            assertEquals("OOO", model.getWinningLine());
+            assertEquals(0, model.getPlayerPoints());
+            assertEquals(1, model.getComputerPoints());
+      }
+
+      @Test
       @DisplayName("Test row win")
       public void testRowWin() {
             // Arrange
@@ -85,11 +103,5 @@ public class GameModelTest {
 
             assertTrue(model.isGameOver(buttonsUsed));
       }
-
-
-
-
-
-
 
 }
