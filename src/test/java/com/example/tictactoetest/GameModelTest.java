@@ -76,6 +76,7 @@ public class GameModelTest {
 
             // Act and Assert
             assertTrue(model.isGameOver(buttonsUsed));
+
       }
 
       @Test
